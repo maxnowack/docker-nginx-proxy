@@ -1,0 +1,20 @@
+server {
+  listen 80;
+
+
+location / {
+    root /var/www/html;
+    try_files $uri @proxy;
+
+    expires max;
+    access_log off;
+  }
+
+  location @proxy {
+    proxy_pass http://somehost.example.com;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
