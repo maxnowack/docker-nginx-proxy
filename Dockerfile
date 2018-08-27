@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:9.5
 RUN apt-get update && apt-get install nginx -y
 
 EXPOSE 80
