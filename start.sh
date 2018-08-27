@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cat > /etc/nginx/sites-enabled/host <<EOF
 server {
   listen 80;
