@@ -7,6 +7,6 @@ VOLUME /var/www/html
 RUN rm -rf /etc/nginx/sites-enabled/*
 COPY confs/nginx.conf /etc/nginx/
 COPY confs/proxy.conf /etc/nginx/conf.d/
-COPY confs/host /etc/nginx/sites-enabled/
+COPY start.sh /etc/nginx/start.sh
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/etc/nginx/start.sh"]
